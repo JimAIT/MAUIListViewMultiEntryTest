@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IssuesTest.MainPage"
+             Title="List">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label x:Name="testTitle" Text="title" />
+            <Button Grid.Row="1" x:Name="btnAdd" Text="Add" Clicked="btnAdd_Clicked" />
+            <ListView Grid.Row="2" x:Name="list" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Entry Grid.Row="0" x:Name="tbCode" Text="{Binding Code}" Focused="tbCode_Focused" Unfocused="tbCode_Unfocused"/>
+                                <Entry Grid.Row="1" x:Name="tbName" Text="{Binding Name}" Completed="tbName_Completed" Focused="tbName_Focused"  Unfocused="tbName_Unfocused"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+</ContentPage>
